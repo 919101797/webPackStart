@@ -1,0 +1,37 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/919101797/webPackStart.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/919101797/webPackStart/issues"
+  },
+  "homepage": "https://github.com/919101797/webPackStart#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "css-loader": "^6.7.1",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "lodash": "^4.17.21",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "stylus": "^0.57.0",
+    "stylus-loader": "^6.2.0"
+  }
+}

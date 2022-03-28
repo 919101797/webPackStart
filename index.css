@@ -1,0 +1,11 @@
+@font-face {
+    font-family: MyFont;
+    src: url('./src/asset/font/JustAnotherFont.TTF');
+}
+
+div.css{
+    width: 300px;
+    height:100px;
+    font-family: 'MyFont';
+    background-color: red;
+}
