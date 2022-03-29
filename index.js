@@ -2,7 +2,7 @@
  * @Author: cc
  * @Date: 2022-03-24 19:16:00
  * @LastEditors: cc
- * @LastEditTime: 2022-03-28 16:23:14
+ * @LastEditTime: 2022-03-29 17:30:26
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \webpack\index.js
@@ -13,6 +13,7 @@ import  './index.less'
 import  './index.styl'
 
 import Icon from './src/asset/images/develop.png'
+import svg from './src/asset/icon/aaa.svg'
 
 
 
@@ -24,6 +25,7 @@ const creactComponent = (eletype = 'div', clessname)=>{
     ele.innerHTML = Info.concat(clessname).join('');
     ele.classList = clessname;
     clessname === 'less' && ele.appendChild(diyIcon);
+    clessname === 'styl' && (ele.style.background = `url(${svg})`);
     return ele
 }
 

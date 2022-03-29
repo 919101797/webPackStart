@@ -2,13 +2,14 @@
  * @Author: cc
  * @Date: 2022-03-28 10:44:11
  * @LastEditors: cc
- * @LastEditTime: 2022-03-28 16:58:37
+ * @LastEditTime: 2022-03-29 17:41:38
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \webpack\webpack.config.js
  */
 const { dirname } = require("path");
 const path = require("path");
+// const svgToMiniDataURI  = require('mini-svg-data-uri');
 
 module.exports = {
   entry: "./index.js",
@@ -40,11 +41,29 @@ module.exports = {
         ],
       },
       { // 加载图片 和字体
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpg|jpeg|gif)$/i,
         type: "asset/resource",
         generator: {
             filename: 'static/img/[hash][ext][query]'
         }
+      },
+      {
+        test: /\.svg/,
+        type: 'asset', // svg格式图片转成base64数据格式
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024 //  小于8kb的svg转换成dataUrl否则压缩成静态资源
+          }
+        },
+        generator: {
+          filename: 'static/img/[hash][ext][query]'
+      }
+        // generator:{
+        //   dataUrl: content=> {
+        //     content = content.toString();
+        //    return svgToMiniDataURI(content);
+        //   } //更小体积的dataurl 使用需要引用库
+        // }
       },
       { // 加载图片 和字体
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -53,6 +72,13 @@ module.exports = {
             filename: 'static/font/[hash][ext][query]'
         }
       },
+      {
+        test: /\.html/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[hash][ext][query]'
+        }
+      }
     ],
   },
 };
