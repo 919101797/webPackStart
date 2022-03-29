@@ -2,7 +2,7 @@
  * @Author: cc
  * @Date: 2022-03-24 19:16:00
  * @LastEditors: cc
- * @LastEditTime: 2022-03-29 17:30:26
+ * @LastEditTime: 2022-03-29 19:56:07
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \webpack\index.js
@@ -15,6 +15,8 @@ import  './index.styl'
 import Icon from './src/asset/images/develop.png'
 import svg from './src/asset/icon/aaa.svg'
 
+import init from './src/views/index'
+import runapp from './src/views/app'
 
 
 const Info = ['hello', 'webpack',]
@@ -28,7 +30,8 @@ const creactComponent = (eletype = 'div', clessname)=>{
     clessname === 'styl' && (ele.style.background = `url(${svg})`);
     return ele
 }
-
+init();
+runapp();
 
 
 document.body.appendChild(creactComponent('div','css'));

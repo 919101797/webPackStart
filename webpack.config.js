@@ -2,7 +2,7 @@
  * @Author: cc
  * @Date: 2022-03-28 10:44:11
  * @LastEditors: cc
- * @LastEditTime: 2022-03-29 17:41:38
+ * @LastEditTime: 2022-03-29 20:00:21
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \webpack\webpack.config.js
@@ -12,7 +12,10 @@ const path = require("path");
 // const svgToMiniDataURI  = require('mini-svg-data-uri');
 
 module.exports = {
-  entry: "./index.js",
+  // entry: "./index.js",
+  entry: {
+    
+  },
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build"),
@@ -78,6 +81,14 @@ module.exports = {
         generator: {
           filename: 'static/[hash][ext][query]'
         }
+      },
+      {
+        test: /\.(csv|tsv)$/i,
+        use: ['csv-loader'],
+      },
+      {
+        test: /\.xml$/i,
+        use: ['xml-loader'],
       }
     ],
   },
