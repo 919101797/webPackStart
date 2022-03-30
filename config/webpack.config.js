@@ -2,7 +2,7 @@
  * @Author: cc
  * @Date: 2022-03-28 10:44:11
  * @LastEditors: cc
- * @LastEditTime: 2022-03-30 18:16:11
+ * @LastEditTime: 2022-03-30 18:47:02
  * @important: 重要提醒
  * @Description: 备注内容
  * @FilePath: \webpack\config\webpack.config.js
@@ -20,7 +20,7 @@ module.exports = {
   devtool: 'eval-source-map',
   devServer: {
     static: {
-    directory:  path.join(__dirname, 'dist'),
+    directory:  path.join(__dirname, '../dist'),
 
     },
     open: true,
@@ -44,7 +44,7 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "../dist"),
     publicPath: '/'
   },
   module: {
