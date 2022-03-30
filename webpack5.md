@@ -1078,8 +1078,34 @@ module.exports = {
   "index.html": "autoindex.html"
 }
 ```
+##  mini-css-extract-plugin
 
 
+通过 [`mini-css-extract-plugin`](https://www.npmjs.com/package/mini-css-extract-plugin) 插件，可以将 CSS解压到单独的文件中。 它为每个包含CSS的JS文件创建一个CSS文件。 它支持按需加载CSS和SourceMaps。
+
+首先安装 mini-css-extract-plugin：
+
+```
+npm install mini-css-extract-plugin --save-dev
+```
+
+**webpack.config.js**
+
+```diff
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  plugins: [new MiniCssExtractPlugin()],
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+    ],
+  },
+};
+```
 
 # 四、开发环境
 
@@ -1652,7 +1678,9 @@ npm install --save-dev webpack-dev-server
    },
    devtool: 'inline-source-map',
 +  devServer: {
-+    contentBase: './dist',
++     static: {
++       directory:  path.join(__dirname, 'dist'),
++   },
 +  },
    plugins: [
      new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
